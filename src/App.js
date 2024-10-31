@@ -1,6 +1,8 @@
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { onAuthStateChanged } from 'firebase/auth';
+
 import "./App.css";
 import { login, logout, selectUser } from "./userSlice";
 import Feed from "./Feed";
@@ -16,7 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    auth.onAuthStateChanged((userAuth) => {
+    onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
         dispatch(
           login({
