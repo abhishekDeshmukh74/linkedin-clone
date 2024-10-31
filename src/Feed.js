@@ -33,7 +33,7 @@ const Feed = () => {
         });
 
         return () => unsubscribe();
-    }, [db]);
+    }, []);
 
     const sendPost = async (e) => {
         e.preventDefault();
