@@ -1,18 +1,51 @@
-import './App.css';
+
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import "./App.css";
+import { login, logout, selectUser } from "./userSlice";
+import Feed from "./Feed";
+import { auth } from "./firebase";
+import Header from "./Header";
+import Login from "./Login";
 import Sidebar from "./Sidebar";
-import Header from './Header';
-import Feed from './Feed';
+// import Widgets from "./Widgets";
 
 function App() {
+  const userState = useSelector(selectUser);
+  const { user } = userState;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        dispatch(
+          login({
+            email: userAuth.email,
+            uid: userAuth.uid,
+            displayName: userAuth.displayName,
+            photoUrl: userAuth.photoURL,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    })
+
+  }, [dispatch]);
+
   return (
     <div className="app">
-      <Header></Header>
+      <Header />
 
-      <div className="app__body">
-        <Sidebar />
-        <Feed />
-
-      </div>
+      {!user ? (
+        <Login />
+      ) : (
+        <div className="app__body">
+          <Sidebar />
+          <Feed />
+          {/* <Widgets /> */}
+        </div>
+      )}
     </div>
   );
 }
