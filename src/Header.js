@@ -1,3 +1,8 @@
+import { logout } from "./userSlice";
+import { auth } from "./firebase";
+import { useDispatch } from "react-redux";
+import { signOut } from 'firebase/auth';
+
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
@@ -10,7 +15,11 @@ import './Header.css';
 
 function Header() {
 
-    const logoutHandler = () => {
+    const dispatch = useDispatch();
+
+    const logoutHandler = async () => {
+        await signOut(auth);
+        dispatch(logout());
     };
 
     return (
