@@ -1,28 +1,22 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { query, orderBy, collection, addDoc, serverTimestamp, onSnapshot } from 'firebase/firestore';
+import FlipMove from "react-flip-move";
 
-import "./Feed.css";
 import CreateIcon from '@mui/icons-material/Create';
 import ImageIcon from '@mui/icons-material/Image';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
-import InputOption from "./InputOption";
-import Post from "./Post";
 
+import InputOption from "./InputOption";
+import "./Feed.css";
+import Post from "./Post";
 import { db } from "./firebase";
-import { useSelector } from "react-redux";
-// import { selectUser } from "./features/userSlice";
-// import FlipMove from "react-flip-move";
+import { selectUser } from "./userSlice";
 
 const Feed = () => {
-    // const { user } = useSelector(selectUser);
-    let user = {
-        displayName: 'aaa',
-        email: 'aaa',
-        photoUrl: 'aaa',
-
-    }
+    const { user } = useSelector(selectUser);
     const [input, setInput] = useState("");
     const [posts, setPosts] = useState([]);
 
@@ -82,7 +76,7 @@ const Feed = () => {
                 </div>
             </div>
 
-            {/* <FlipMove> */}
+            <FlipMove>
             {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
                 <Post
                     key={id}
@@ -92,7 +86,7 @@ const Feed = () => {
                     photoUrl={photoUrl}
                 />
             ))}
-            {/* </FlipMove> */}
+            </FlipMove>
         </div>
     );
 };
