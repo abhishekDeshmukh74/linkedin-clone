@@ -1,7 +1,7 @@
 LinkedIn Clone
 ==============
 
-A minimal LinkedIn-style social feed built with React and Firebase — authentication, posting, and a clean feed UI. Deployed on Firebase Hosting.
+LinkedIn clone built with React and Firebase including authentication, real-time posts, and a modern responsive UI.
 
 Live Demo: https://linkedin-clone-4d2c2.web.app
 
