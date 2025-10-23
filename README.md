@@ -1,38 +1,35 @@
-LinkedIn Clone
-==============
+# LinkedIn Clone
 
-LinkedIn clone built with React and Firebase including authentication, real-time posts, and a modern responsive UI.
+LinkedIn clone built with **React** and **Firebase** including authentication, real-time posts, and a modern responsive UI.
 
-Live Demo: https://linkedin-clone-4d2c2.web.app
+**Live Demo:** [https://linkedin-clone-4d2c2.web.app](https://linkedin-clone-4d2c2.web.app)
 
-------------------------------------------------------------
+---
 
-✨ Features
------------
+## ✨ Features
 
-- 🔐 Authentication (Firebase Auth – email/password & provider-ready)
-- 📝 Create posts (text + optional media placeholder)
-- 📰 Real-time feed (Firestore)
-- 👍 Like / engage (extensible)
-- 📱 Responsive UI
-- 🚀 Firebase Hosting deployment workflow
+- 🔐 **Authentication** (Firebase Auth – email/password & provider-ready)
+- 📝 **Create posts** (text + optional media placeholder)
+- 📰 **Real-time feed** (Firestore)
+- 👍 **Like / engage** (extensible)
+- 📱 **Responsive UI**
+- 🚀 **Firebase Hosting** deployment workflow
 
-------------------------------------------------------------
+---
 
-🧱 Tech Stack
---------------
+## 🧱 Tech Stack
 
-- Frontend: React (JS), CSS
-- Backend (BaaS): Firebase (Auth, Firestore)
-- Deployment: Firebase Hosting
+- **Frontend:** React (JS), CSS
+- **Backend (BaaS):** Firebase (Auth, Firestore)
+- **Deployment:** Firebase Hosting
 
-Languages shown by GitHub: JavaScript, CSS, HTML
+> Languages shown by GitHub: JavaScript, CSS, HTML
 
-------------------------------------------------------------
+---
 
-📦 Project Structure
---------------------
+## 📦 Project Structure
 
+```
 linkedin-clone/
 ├─ public/
 ├─ src/
@@ -47,72 +44,84 @@ linkedin-clone/
 ├─ firebase.json
 ├─ package.json
 └─ README.md
+```
 
-------------------------------------------------------------
+---
 
-⚙️ Local Setup
---------------
+## ⚙️ Local Setup
 
-1. Clone
+1. **Clone**
+   ```bash
    git clone https://github.com/abhishekDeshmukh74/linkedin-clone.git
    cd linkedin-clone
+   ```
 
-2. Install
+2. **Install**
+   ```bash
    npm install
    # or
    yarn
+   ```
 
-3. Environment Variables
+3. **Environment Variables**
 
-   Create a .env file in the root. If this is a Create React App project, prefix with REACT_APP_.
+   Create a `.env` file in the root. If this is a **Create React App** project, prefix with `REACT_APP_`.
 
    Example:
+   ```bash
    REACT_APP_FIREBASE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxx
    REACT_APP_FIREBASE_AUTH_DOMAIN=your-app.firebaseapp.com
    REACT_APP_FIREBASE_PROJECT_ID=your-app
    REACT_APP_FIREBASE_STORAGE_BUCKET=your-app.appspot.com
    REACT_APP_FIREBASE_MESSAGING_SENDER_ID=xxxxxxxxxxxx
    REACT_APP_FIREBASE_APP_ID=1:xxxxxxxxxxxx:web:xxxxxxxxxxxxxxxx
+   ```
 
-4. Run
+4. **Run**
+   ```bash
    npm start
    # or
    yarn start
+   ```
 
-5. Build
+5. **Build**
+   ```bash
    npm run build
    # or
    yarn build
+   ```
 
-------------------------------------------------------------
+---
 
-☁️ Firebase Hosting (Deploy)
-----------------------------
+## ☁️ Firebase Hosting (Deploy)
 
 1. Login & init (once):
+   ```bash
    npm install -g firebase-tools
    firebase login
    firebase init
    # choose Hosting, use build/ as public if CRA, set SPA rewrite to index.html
+   ```
 
 2. Deploy:
+   ```bash
    npm run build
    firebase deploy
+   ```
 
-------------------------------------------------------------
+---
 
-🔐 Notes on Secrets
--------------------
+## 🔐 Notes on Secrets
 
-- Firebase client config (apiKey, authDomain, etc.) is client-side and not truly secret,
-  but keep it in .env for cleaner code and easier environment switching.
-- Do not commit service account keys or any server credentials.
+- Firebase client config (`apiKey`, `authDomain`, etc.) is client-side and not truly secret,
+  but keep it in `.env` for cleaner code and easier environment switching.
+- Do **not** commit service account keys or any server credentials.
 
-------------------------------------------------------------
+---
 
-🧪 Scripts
-----------
+## 🧪 Scripts
 
+```json
 {
   "scripts": {
     "start": "react-scripts start",
@@ -121,5 +130,6 @@ linkedin-clone/
     "deploy": "firebase deploy"
   }
 }
+```
 
-------------------------------------------------------------
+---
